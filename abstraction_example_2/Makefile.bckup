@@ -8,12 +8,12 @@ app = abstract_algorithm
 lib = libsearch_test.so libsort_test.so
 
 CFLAGS = -Wall -ansi -pedantic
-LDLIBS = -ldl
+LDFLAGS = -ldl
 
 all: $(app) $(lib)
 
 lib%.so: *_test/%.c
-	$(CC) -shared -fPIC $(CFLAGS) -o $@ $< $(LDLIBS) 
+	$(CC) -shared -fPIC $(CFLAGS) -o $@ $<
 
 clean:
 	$(RM) $(app) $(lib)
